@@ -10,27 +10,42 @@
         <link rel="stylesheet" href="./assets/style.css" type="text/css">
      </head>
      <body>
-         <h1>RS School CSS Mem Slider</h1>
+         <h1>RS School CSS Meme Slider!!</h1>
          <div class="slider_wrapper">
+            <input checked type="radio" name="radiobtn" id="r1">
+            <input type="radio" name="radiobtn" id="r2">
+            <input type="radio" name="radiobtn" id="r3">
+            <input type="radio" name="radiobtn" id="r4">
+            <input type="radio" name="radiobtn" id="r5">
              <div class="slider">
-                 <input type="radio" name="radiobtn" id="r1" checked>
-                 <input type="radio" name="radiobtn" id="r2">
-                 <input type="radio" name="radiobtn" id="r3">
-                 <input type="radio" name="radiobtn" id="r4">
-                 <input type="radio" name="radiobtn" id="r5">
-                 <div class="slide"><img src="./assets/naperdysh.jpg" alt=""></div>
-                 <div class="slide"><img src="./assets/stavclass.jpeg" alt=""></div>
-                 <div class="slide"><img src="./assets/ericpojmi.jpeg" alt=""></div>
-                 <div class="slide"><img src="./assets/chilipizdric.png" alt=""></div>
-                 <div class="slide"><img src="./assets/mechty.jpeg" alt=""></div>
+                 <div class="visible">
+                     <div class="images">
+                 <div class="slide" id="s1"><img src="./assets/naperdysh.jpg" alt="mem's supposed to be here"></div>
+                 <div class="slide" id="s2"><img src="./assets/stavclass.jpg" alt="here too"></div>
+                 <div class="slide" id="s3"><img src="./assets/ericpojmi.jpg" alt="nice mem, bro">
+                 </div>     
+                
+                 <div class="slide" id="s4">
+                     <img src="./assets/chilipizdric.jpg" alt="mem should be here, i swear, i don't know why it's not..">
+                     </div>
+                 <div class="slide" id="s5">
+                     <img src="./assets/mechty.jpg" alt="another mem is here somewhere..">
+                     </div>
+                    </div>
+                    </div>
              </div>
-             <div class="controls">
-                 <label for="r1" class="radiobtn"></label>
-                 <label for="r1" class="radiobtn"></label>
-                 <label for="r1" class="radiobtn"></label>
-                 <label for="r1" class="radiobtn"></label>
-                 <label for="r1" class="radiobtn"></label>
-             </div>
+                        <div class="controls">
+                            <label for="r1"></label>
+                            <label for="r2"></label>
+                            <label for="r3"></label>
+                            <label for="r4"></label>
+                            <label for="r5"></label>
+                        </div>
+                        <div class="active">
+                            <label for="r1"></label>
+                            <label for="r2"></label>
+                            <label for="r3"></label>
+                            <label for="r4"></label>
+                            <label for="r5"></label>
+                        </div>
          </div>
-    </body>
-</html>

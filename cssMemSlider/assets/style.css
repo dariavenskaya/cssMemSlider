@@ -1,1 +1,33 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+body{
+    background-color: hotpink;
+    text-align: center;
+}
+h1{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:#2D46B9;
+    font-size: 6rem;
+    text-shadow: 0.25rem 0.2em 0.01em darkmagenta;
+}
+.slider_wrapper{
+    margin: 0 auto;
+    border: 0.5em dashed #2D46B9;
+    border-radius: 5%;
+    padding: 2em;
+    background-color: darkviolet;
+    max-width: 800px;
+    width: 100%;
+}
+.images{
+    display: flex;
+    flex-direction: row;
+    width: 500%;
+    line-height: 0;
+} 
+
+.slide{
+    width: 100%;
+}
+.visible{
+    width: 100%;
+    overflow:hidden;
+}
