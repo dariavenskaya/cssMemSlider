@@ -5,36 +5,67 @@ body{
 h1{
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color:#2D46B9;
-    font-size: 6rem;
+    font-size: 5.5rem;
     text-shadow: 0.25rem 0.2em 0.01em darkmagenta;
     position: relative;
-    z-index: 10000;
+    width: 100%;
+    overflow: hidden;
 }
 h1:hover{
-    animation: scroll 1.5s infinite linear;
+    animation: header 1.5s infinite ease-in;
 }
-@keyframes scroll {
+@keyframes header {
     0% {
-        transform: translate(0, 0);
+        letter-spacing: inherit;
     }
     100% {
-        transform: translate(-100%, 0)
+        letter-spacing: 0.3em;
     }
 }
+@keyframes active {
+    0% {
+        background-color: #2D46B9;
+    }
+    100% {
+       background-color: crimson;
+    }
+}
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+       opacity: 1;
+    }
+}
+
+@keyframes slide {
+    0% {
+        visibility: hidden;
+    }
+    100% {
+       visibility:visible;
+    }
+}
+
+
+
+
 .slider_wrapper{
     margin: 0 auto;
     border: 0.5em dashed #2D46B9;
     border-radius: 5%;
     padding: 2em;
-    background-color: darkviolet;
-    max-width: 800px;
+    background-color: rgb(177, 100, 210);
+    max-width: 700px;
+    max-height: 450px;
     width: 100%;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 
-    "img img img "
-    "capt capt cntr";
+    "img img img img"
+    "capt capt capt cntr";
 }
 
 .slider{
@@ -51,15 +82,36 @@ h1:hover{
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     color:#2D46B9;
-    font-family: fantasy;
-    font-size: 2em;
+    font-size: 1.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight:bolder;
+    justify-items: stretch;
+    max-height: 2em;
+    height: 100%;
+
+
 }
 .controls{
+    display:flex;
+    flex-direction: row;
     grid-area: cntr;
-
+    transition:all 0.3s;
 }
-
+.circle{
+    width: 1.5em;
+    height: 1.5em;
+    background-color: #2D46B9;
+    border-radius: 50%;
+    margin-left: 0.3em;
+    transition: all 0.7s;
+    cursor: pointer;
+}
+.circle:hover{
+    background-color: darkmagenta;
+}
+input{
+    visibility: hidden;
+}
 #slide1{
     grid-area: 1/1;
     z-index: 5;
@@ -84,13 +136,14 @@ h1:hover{
 #radio5:checked ~ *.slider #slide5{
     z-index: 100;
 }
+
 #caption1{
-    background-color: darkviolet;
+    background-color: rgb(177, 100, 210);
     grid-area: 1/1;
     z-index: 5;
 }
 #caption2, #caption3, #caption4, #caption5{
-    background-color: darkviolet;
+    background-color: rgb(177, 100, 210);
     grid-area: 1/1;
     z-index: 1;
 }
@@ -108,4 +161,31 @@ h1:hover{
 }
 #radio5:checked ~ *.captions #caption5{
     z-index: 100;
+}
+
+#radio1:checked ~ *.controls #label1{
+    animation: active 0.3s cubic-bezier(1.0,0,0,1.0);
+    animation-iteration-count: 4;
+    background-color: crimson;
+
+}
+#radio2:checked ~ *.controls #label2{
+    animation: active 0.3s cubic-bezier(1.0,0,0,1.0);
+    animation-iteration-count: 4;
+    background-color: crimson;
+}
+#radio3:checked ~ *.controls #label3{
+    animation: active 0.2s cubic-bezier(1.0,0,0,1.0);
+    animation-iteration-count: 4;
+    background-color: crimson;
+}
+#radio4:checked ~ *.controls #label4{
+    animation: active 0.3s cubic-bezier(1.0,0,0,1.0);
+    animation-iteration-count: 4;
+    background-color: crimson;
+}
+#radio5:checked ~ *.controls #label5{
+    animation: active 0.3s cubic-bezier(1.0,0,0,1.0);
+    animation-iteration-count: 4;
+    background-color: crimson;
 }
