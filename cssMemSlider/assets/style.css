@@ -7,6 +7,19 @@ h1{
     color:#2D46B9;
     font-size: 6rem;
     text-shadow: 0.25rem 0.2em 0.01em darkmagenta;
+    position: relative;
+    z-index: 10000;
+}
+h1:hover{
+    animation: scroll 1.5s infinite linear;
+}
+@keyframes scroll {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0)
+    }
 }
 .slider_wrapper{
     margin: 0 auto;
@@ -16,18 +29,83 @@ h1{
     background-color: darkviolet;
     max-width: 800px;
     width: 100%;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "img img img "
+    "capt capt cntr";
 }
-.images{
-    display: flex;
-    flex-direction: row;
-    width: 500%;
-    line-height: 0;
-} 
 
-.slide{
-    width: 100%;
+.slider{
+    display:grid;
+    grid-area: img;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    row-gap: 5em;
+    width:100%;
 }
-.visible{
-    width: 100%;
-    overflow:hidden;
+.captions{
+    display:grid;
+    grid-area: capt;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    color:#2D46B9;
+    font-family: fantasy;
+    font-size: 2em;
+    font-weight:bolder;
+}
+.controls{
+    grid-area: cntr;
+
+}
+
+#slide1{
+    grid-area: 1/1;
+    z-index: 5;
+}
+#slide2, #slide3, #slide4, #slide5{
+    grid-area: 1/1;
+    z-index: 1;
+}
+
+#radio1:checked ~ *.slider #slide1{
+    z-index: 100;
+}
+#radio2:checked ~ *.slider #slide2{
+   z-index: 100;
+}
+#radio3:checked ~ *.slider #slide3{
+    z-index: 100;
+}
+#radio4:checked ~ *.slider #slide4{
+    z-index: 100;
+}
+#radio5:checked ~ *.slider #slide5{
+    z-index: 100;
+}
+#caption1{
+    background-color: darkviolet;
+    grid-area: 1/1;
+    z-index: 5;
+}
+#caption2, #caption3, #caption4, #caption5{
+    background-color: darkviolet;
+    grid-area: 1/1;
+    z-index: 1;
+}
+#radio1:checked ~ *.captions #caption1{
+    z-index: 100;
+}
+#radio2:checked ~ *.captions #caption2{
+    z-index: 100;
+}
+#radio3:checked ~ *.captions #caption3{
+    z-index: 100;
+}
+#radio4:checked ~ *.captions #caption4{
+    z-index: 100;
+}
+#radio5:checked ~ *.captions #caption5{
+    z-index: 100;
 }
