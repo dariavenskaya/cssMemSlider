@@ -24,10 +24,10 @@ h1:hover{
 }
 @keyframes active {
     0% {
-        background-color: #2D46B9;
+        transform: scale(1);
     }
     100% {
-       background-color: crimson;
+        transform: scale(0.8);
     }
 }
 @keyframes opacity {
@@ -39,12 +39,12 @@ h1:hover{
     }
 }
 
-@keyframes slide {
+@keyframes transformation {
     0% {
-        visibility: hidden;
+        transform: scale(1);
     }
     100% {
-       visibility:visible;
+        transform: scale(0.5);
     }
 }
 
@@ -53,12 +53,10 @@ h1:hover{
 
 .slider_wrapper{
     margin: 0 auto;
-    border: 0.5em dashed #2D46B9;
-    border-radius: 5%;
-    padding: 2em;
-    background-color: rgb(177, 100, 210);
+    background-color: darkmagenta;
+    padding: 2rem;
     max-width: 700px;
-    max-height: 450px;
+    max-height: 480px;
     width: 100%;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -75,20 +73,21 @@ h1:hover{
     grid-template-rows: 1fr;
     row-gap: 5em;
     width:100%;
+    margin-bottom: 1rem;
 }
 .captions{
     display:grid;
     grid-area: capt;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    color:#2D46B9;
-    font-size: 1.5em;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:rgb(1, 1, 69);
+    font-size: 1.3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight:bolder;
     justify-items: stretch;
     max-height: 2em;
     height: 100%;
-
+    text-align: start;
 
 }
 .controls{
@@ -100,23 +99,21 @@ h1:hover{
 .circle{
     width: 1.5em;
     height: 1.5em;
+    padding:0;
     background-color: #2D46B9;
+    border: 0.7rem solid darkmagenta;
     border-radius: 50%;
-    margin-left: 0.3em;
+    z-index: 100;
     transition: all 0.7s;
     cursor: pointer;
 }
 .circle:hover{
-    background-color: darkmagenta;
+    background-color: rgb(74, 5, 74);
 }
 input{
     visibility: hidden;
 }
-#slide1{
-    grid-area: 1/1;
-    z-index: 5;
-}
-#slide2, #slide3, #slide4, #slide5{
+#slide1, #slide2, #slide3, #slide4, #slide5{
     grid-area: 1/1;
     z-index: 1;
 }
@@ -124,6 +121,7 @@ input{
 #radio1:checked ~ *.slider #slide1{
     z-index: 100;
 }
+
 #radio2:checked ~ *.slider #slide2{
    z-index: 100;
 }
@@ -137,13 +135,8 @@ input{
     z-index: 100;
 }
 
-#caption1{
-    background-color: rgb(177, 100, 210);
-    grid-area: 1/1;
-    z-index: 5;
-}
-#caption2, #caption3, #caption4, #caption5{
-    background-color: rgb(177, 100, 210);
+#caption1, #caption2, #caption3, #caption4, #caption5{
+    background-color: darkmagenta;
     grid-area: 1/1;
     z-index: 1;
 }
@@ -164,28 +157,72 @@ input{
 }
 
 #radio1:checked ~ *.controls #label1{
-    animation: active 0.3s cubic-bezier(1.0,0,0,1.0);
+    animation: active 0.2s cubic-bezier(1.0,0,0,1.0);
     animation-iteration-count: 4;
-    background-color: crimson;
+    transform: scale(0.7);
+    background-color: hotpink;
 
 }
 #radio2:checked ~ *.controls #label2{
-    animation: active 0.3s cubic-bezier(1.0,0,0,1.0);
+    animation: active 0.2s cubic-bezier(1.0,0,0,1.0);
+    transform: scale(0.7);
     animation-iteration-count: 4;
-    background-color: crimson;
+    background-color: hotpink;
 }
 #radio3:checked ~ *.controls #label3{
     animation: active 0.2s cubic-bezier(1.0,0,0,1.0);
+    transform: scale(0.7);
     animation-iteration-count: 4;
-    background-color: crimson;
+    background-color: hotpink;
 }
 #radio4:checked ~ *.controls #label4{
-    animation: active 0.3s cubic-bezier(1.0,0,0,1.0);
+    animation: active 0.2s cubic-bezier(1.0,0,0,1.0);
+    transform: scale(0.7);
     animation-iteration-count: 4;
-    background-color: crimson;
+    background-color: hotpink;
 }
 #radio5:checked ~ *.controls #label5{
-    animation: active 0.3s cubic-bezier(1.0,0,0,1.0);
+    animation: active 0.2s cubic-bezier(1.0,0,0,1.0);
+    transform: scale(0.7);
     animation-iteration-count: 4;
-    background-color: crimson;
+    background-color: hotpink;
 }
+
+
+@media screen and (max-width:414px){
+    h1{
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        color:#2D46B9;
+        font-size: 2rem;
+        text-shadow: 0.15rem 0.2em 0.01em darkmagenta;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+    h1:hover{
+        animation: transformation 0.5s infinite ease-in;
+    }
+    .slider_wrapper{
+        margin: 0 auto;
+        background-color: darkmagenta;
+        padding: 2rem;
+        width: 80%;
+        height: 65vh;
+        display:grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "img"
+        "cntr"
+        "capt";
+    }
+    img{
+        width: 100%;
+    }
+    .controls{
+        justify-self: center;
+        margin-bottom: 1em;
+    }
+}
+
+
