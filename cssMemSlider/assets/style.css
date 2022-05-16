@@ -47,6 +47,22 @@ h1:hover{
         transform: scale(0.5);
     }
 }
+@keyframes transition {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes transitionUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 
 
 
@@ -99,7 +115,6 @@ h1:hover{
 .circle{
     width: 1.5em;
     height: 1.5em;
-    padding:0;
     background-color: #2D46B9;
     border: 0.7rem solid darkmagenta;
     border-radius: 50%;
@@ -115,45 +130,58 @@ input{
 }
 #slide1, #slide2, #slide3, #slide4, #slide5{
     grid-area: 1/1;
-    z-index: 1;
+    z-index: -5;
 }
 
 #radio1:checked ~ *.slider #slide1{
+    animation: opacity 1s ease-in;
     z-index: 100;
 }
 
 #radio2:checked ~ *.slider #slide2{
-   z-index: 100;
+    animation: opacity 1s ease-in;
+    z-index: 100;
 }
 #radio3:checked ~ *.slider #slide3{
+    animation: opacity 1s ease-in;
     z-index: 100;
 }
 #radio4:checked ~ *.slider #slide4{
+    animation: opacity 1s ease-in;
     z-index: 100;
 }
 #radio5:checked ~ *.slider #slide5{
+    animation: opacity 1s ease-in;
     z-index: 100;
 }
 
 #caption1, #caption2, #caption3, #caption4, #caption5{
     background-color: darkmagenta;
     grid-area: 1/1;
-    z-index: 1;
+    z-index: -5;
 }
+
 #radio1:checked ~ *.captions #caption1{
-    z-index: 100;
+    animation: transition 1s;
+    z-index: 4;
 }
+
 #radio2:checked ~ *.captions #caption2{
-    z-index: 100;
+    animation: transition 1s;
+    z-index: 4;
 }
+
 #radio3:checked ~ *.captions #caption3{
-    z-index: 100;
+    animation: transition 1s;
+    z-index: 4;
 }
 #radio4:checked ~ *.captions #caption4{
-    z-index: 100;
+    animation: transition 1s;
+    z-index: 4;
 }
 #radio5:checked ~ *.captions #caption5{
-    z-index: 100;
+    animation: transition 1s;
+    z-index: 4;
 }
 
 #radio1:checked ~ *.controls #label1{
@@ -189,7 +217,7 @@ input{
 }
 
 
-@media screen and (max-width:414px){
+@media screen and (max-width:550px){
     h1{
         font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         color:#2D46B9;
@@ -223,6 +251,29 @@ input{
         justify-self: center;
         margin-bottom: 1em;
     }
+    #radio1:checked ~ *.captions #caption1{
+        animation: transitionUp 1s;
+        z-index: 4;
+    }
+    
+    #radio2:checked ~ *.captions #caption2{
+        animation: transitionUp 1s;
+        z-index: 4;
+    }
+    
+    #radio3:checked ~ *.captions #caption3{
+        animation: transitionUp 1s;
+        z-index: 4;
+    }
+    #radio4:checked ~ *.captions #caption4{
+        animation: transitionUp 1s;
+        z-index: 4;
+    }
+    #radio5:checked ~ *.captions #caption5{
+        animation: transitionUp 1s;
+        z-index: 4;
+    }
+    
 }
 
 
